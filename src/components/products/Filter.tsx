@@ -1,10 +1,15 @@
-import { useState } from "react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { LayoutGrid, Table2, SlidersHorizontal, ArrowUpDown, CalendarDays, ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react"
 
-export default function ProductFilter() {
-  const [viewMode, setViewMode] = useState<"table" | "grid">("table")
+type ViewMode = "table" | "grid"
+
+interface ProductFilterProps {
+  viewMode: ViewMode
+  onViewModeChange: (mode: ViewMode) => void
+}
+
+export default function ProductFilter({ viewMode, onViewModeChange }: ProductFilterProps) {
 
   return (
     <div className="flex flex-wrap items-center justify-end gap-2">
@@ -78,7 +83,7 @@ export default function ProductFilter() {
           size="sm"
           variant={viewMode === "grid" ? "secondary" : "ghost"}
           className="rounded-full px-3 py-1.5"
-          onClick={() => setViewMode("grid")}
+          onClick={() => onViewModeChange("grid")}
         >
           <LayoutGrid className="h-4 w-4" />
         </Button>
@@ -87,7 +92,7 @@ export default function ProductFilter() {
           size="sm"
           variant={viewMode === "table" ? "secondary" : "ghost"}
           className="rounded-full px-3 py-1.5"
-          onClick={() => setViewMode("table")}
+          onClick={() => onViewModeChange("table")}
         >
           <Table2 className="h-4 w-4" />
         </Button>
