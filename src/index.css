@@ -49,7 +49,7 @@
 
 html,
 body {
-  background-color: var(--muted);
+  background: linear-gradient(to bottom, var(--muted), var(--background));
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

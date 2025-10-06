@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { Equal, X } from 'lucide-react'
 import React from 'react'
 import { cn } from '@/lib/utils'
@@ -7,9 +7,9 @@ import { ROUTES } from "@/router/router"
 
 const menuItems = [
   { name: 'Home', href: ROUTES.HOME },
-  { name: 'Products', href: ROUTES.HOME },
-  { name: 'Categories', href: ROUTES.HOME },
-  { name: 'About', href: ROUTES.HOME },
+  { name: 'Products', href: ROUTES.PRODUCTS },
+  { name: 'Categories', href: ROUTES.CATEGORIES },
+  { name: 'About', href: ROUTES.ABOUT },
 ]
 
 export default function Navbar() {
@@ -44,11 +44,15 @@ export default function Navbar() {
               <ul className="flex gap-8 text-sm">
                 {menuItems.map((item, index) => (
                   <li key={index}>
-                    <Link
+                    <NavLink
                       to={item.href}
-                      className="hover:text-primary block duration-150">
+                      className={({ isActive }) => cn(
+                        "hover:text-primary block duration-150",
+                        isActive && "font-semibold"
+                      )}
+                    >
                       <span>{item.name}</span>
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -59,11 +63,15 @@ export default function Navbar() {
                 <ul className="space-y-6 text-base">
                   {menuItems.map((item, index) => (
                     <li key={index}>
-                      <Link
+                      <NavLink
                         to={item.href}
-                        className="block">
+                        className={({ isActive }) => cn(
+                          "block",
+                          isActive && "font-semibold"
+                        )}
+                      >
                         <span>{item.name}</span>
-                      </Link>
+                      </NavLink>
                     </li>
                   ))}
                 </ul>

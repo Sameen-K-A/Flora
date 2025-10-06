@@ -22,7 +22,7 @@ export default function GeneralLayout() {
 
       <div 
         ref={contentRef}
-        className='flex-1 rounded-t-2xl bg-background border-t/50 shadow-2xl/5 p-4'
+        className='flex-1 rounded-t-2xl bg-background border-t shadow-2xl p-4'
       >
         <Outlet />
       </div>  
