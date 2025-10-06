@@ -44,7 +44,7 @@ export default function AllProductsMain() {
           className="grid gap-2 md:gap-5 grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(240px,1fr))]"
         >
           {mockProducts.map((product) => (
-            <div key={product.id} className="product-card">
+            <div key={product.id} className="product-card mb-5">
               <ProductCard product={product} />
             </div>
           ))}
