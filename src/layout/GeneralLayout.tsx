@@ -17,12 +17,12 @@ export default function GeneralLayout() {
   }, []);
 
   return (
-    <div className="container mx-auto h-[100dvh] p-4 flex flex-col">
+    <div className="container mx-auto h-[100dvh] pt-4 flex flex-col">
       <Navbar />
 
       <div 
         ref={contentRef}
-        className='flex-1 rounded-xl bg-background shadow-2xl/5 p-4'
+        className='flex-1 rounded-t-2xl bg-background border-t/50 shadow-2xl/5 p-4'
       >
         <Outlet />
       </div>  
