@@ -38,7 +38,7 @@ export default function PageHeader({ title }: PageHeaderProps) {
 
   return (
     <div className="space-y-4">
-      <div className="w-full h-52 rounded-xl border relative flex items-end p-8 bg-black overflow-hidden">
+      <div className="w-full h-52 rounded-xl border relative flex items-end p-4 md:p-8 bg-black overflow-hidden">
         <div className="w-full">
           <div id="line" className="h-1 w-20 bg-background rounded-full mb-3 origin-left scale-x-0" />
           <h1 id="title" className="text-6xl font-extrabold text-background">
