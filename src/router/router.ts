@@ -7,3 +7,6 @@ export const ROUTES = {
   
   NOTFOUND: `*`,
 } as const;
+
+// Helper to build product details route
+export const productDetailsRoute = (id: string) => `${ROUTES.PRODUCTS}/${id}`;

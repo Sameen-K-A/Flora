@@ -1,23 +1,7 @@
 import { useState } from "react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import {
-  LayoutGrid,
-  Table2,
-  SlidersHorizontal,
-  ArrowUpDown,
-  CalendarDays,
-  ArrowDownWideNarrow,
-  ArrowUpWideNarrow,
-} from "lucide-react"
+import { LayoutGrid, Table2, SlidersHorizontal, ArrowUpDown, CalendarDays, ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react"
 
 export default function ProductFilter() {
   const [viewMode, setViewMode] = useState<"table" | "grid">("table")
