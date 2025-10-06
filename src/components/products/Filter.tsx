@@ -37,7 +37,7 @@ export default function ProductFilter() {
           </Button>
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="end" className="w-[220px]">
+        <DropdownMenuContent align="center" className="w-[220px]">
           <DropdownMenuLabel>Sort by</DropdownMenuLabel>
           <DropdownMenuSeparator />
 
