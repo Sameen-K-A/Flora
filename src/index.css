@@ -42,6 +42,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -80,4 +81,9 @@ body::-webkit-scrollbar {
 
 .bg-primary-gradient {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+[data-slot="sheet-trigger"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
