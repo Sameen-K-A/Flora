@@ -2,6 +2,7 @@ import Navbar from '@/components/others/Navbar';
 import { Outlet } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import { Footer } from '@/components/others/Footer';
 
 export default function GeneralLayout() {
   const contentRef = useRef(null);
@@ -17,15 +18,14 @@ export default function GeneralLayout() {
   }, []);
 
   return (
-    <div className="container mx-auto h-[100dvh] pt-4 flex flex-col">
+    <div className="container mx-auto min-h-[100dvh] pt-4 flex flex-col">
       <Navbar />
 
-      <div
-        ref={contentRef}
-        className='flex-1 rounded-t-2xl bg-background border-t overflow-x-hidden scrollbar-none'
-      >
+      <div ref={contentRef} className='flex-1 rounded-t-2xl min-h-[90dvh] bg-background border-t overflow-x-hidden scrollbar-none'>
         <Outlet />
       </div>
+
+      <Footer />
     </div>
   );
 }

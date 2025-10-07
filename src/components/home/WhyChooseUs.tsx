@@ -25,7 +25,7 @@ const features: IFeatures[] = [
   },
   {
     icon: <CiStar />,
-    title: "Quality Products",
+    title: "Quality",
     desc: "Curated collections with premium quality assurance.",
   },
 ];
@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
       {features.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-center p-4 rounded-lg transition-transform hover:-translate-y-1"
+          className="flex flex-col items-center p-4 rounded-lg"
         >
           <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-4">
             <span className="text-2xl text-center">{item.icon}</span>
