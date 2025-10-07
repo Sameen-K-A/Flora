@@ -6,20 +6,56 @@ import { mockProducts } from "@/constants/mockProducts";
 import { productDetailsRoute } from "@/router/router";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { gsap } from "gsap";
 
 export function CartSheet() {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const itemsRef = React.useRef<(HTMLDivElement | null)[]>([]);
+  const hasAnimated = React.useRef(false);
 
   const handleProductClick = (productId: string) => {
     navigate(productDetailsRoute(productId));
     setOpen(false);
   };
 
+  // Reset animation flag when sheet closes
+  React.useEffect(() => {
+    if (!open) {
+      hasAnimated.current = false;
+    }
+  }, [open]);
+
+  // Callback ref that triggers animation when container mounts
+  const containerCallbackRef = React.useCallback((node: HTMLDivElement | null) => {
+    if (node && open && !hasAnimated.current) {
+      hasAnimated.current = true;
+
+      const items = itemsRef.current.filter(Boolean);
+
+      if (items.length > 0) {
+        gsap.fromTo(
+          items,
+          {
+            opacity: 0,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.15,
+            ease: "power2.out",
+          }
+        );
+      }
+    }
+  }, [open]);
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <IoMdCart size={20} className="cursor-pointer" />
+        <IoMdCart size={20} className="cursor-pointer mr-2" />
       </SheetTrigger>
 
       <SheetContent side="right" className="p-0 w-screen max-w-full sm:max-w-md border-l" showClose={false}>
@@ -36,10 +72,11 @@ export function CartSheet() {
           <h3 className="text-lg font-semibold">Cart</h3>
         </SheetHeader>
 
-        <div className="px-4 pb-4 flex flex-col h-full gap-2 overflow-y-auto custom-scrollbar">
-          {mockProducts.map((product) => (
+        <div ref={containerCallbackRef} className="px-4 pb-4 flex flex-col h-full gap-2 overflow-y-auto custom-scrollbar">
+          {mockProducts.map((product, index) => (
             <div
               key={product.id}
+              ref={(el) => { itemsRef.current[index] = el; }}
               className="flex items-start justify-between gap-4 border rounded-lg p-3 hover:bg-muted/40 cursor-pointer transition-colors"
               onClick={() => handleProductClick(product.id)}
             >
@@ -62,11 +99,12 @@ export function CartSheet() {
                 <button
                   className="p-2 cursor-pointer rounded-md hover:bg-destructive/10 text-destructive transition-colors"
                   aria-label="Remove"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <Trash2 size={16} />
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
                   <button className="p-1 cursor-pointer rounded-md border hover:bg-muted transition-colors">
                     <Minus size={14} />
                   </button>
