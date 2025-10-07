@@ -51,11 +51,6 @@ export function SearchSheet() {
             <div className="w-full max-w-xs">
               <Lottie animationData={fileScanning} loop={true} />
             </div>
-
-            <h1 className="text-xl font-bold mt-6">No Products Found</h1>
-            <p className="text-muted-foreground text-xs mt-2 text-center">
-              We couldn&apos;t find any products. Please check back later or explore other categories.
-            </p>
           </div>
         </div>
       </SheetContent>
