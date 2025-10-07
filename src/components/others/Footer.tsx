@@ -31,13 +31,13 @@ const defaultSocialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="p-4">
-      <div className="rounded-2xl bg-black p-4 py-10">
+    <footer className="rounded-t-2xl border-t bg-muted p-4">
+      <div className="rounded-2xl bg-background p-4 py-10 shadow-2xl/5">
         <div className="flex flex-col md:flex-row w-full justify-between gap-10">
           <div className="flex w-full items-center md:items-start flex-col gap-4">
             <div className="flex items-center gap-2 lg:justify-start">
               <Link to={ROUTES.HOME}>
-                <h3 className="font-logo text-2xl font-bold text-background">
+                <h3 className="font-logo text-2xl font-bold">
                   Flora
                 </h3>
               </Link>
@@ -58,7 +58,7 @@ export const Footer = () => {
           <div className="flex w-full md:w-md justify-around gap-4">
             {defaultSections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold text-sm text-center text-background">{section.title}</h3>
+                <h3 className="mb-4 font-bold text-sm text-center">{section.title}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground text-center">
                   {section.links.map((link, linkIdx) => (
                     <li key={linkIdx}>
