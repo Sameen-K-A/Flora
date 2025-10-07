@@ -22,7 +22,7 @@ export default function GeneralLayout() {
 
       <div
         ref={contentRef}
-        className='flex-1 rounded-t-2xl bg-background border-t overflow-x-hidden custom-scrollbar'
+        className='flex-1 rounded-t-2xl bg-background border-t overflow-x-hidden scrollbar-none'
       >
         <Outlet />
       </div>
