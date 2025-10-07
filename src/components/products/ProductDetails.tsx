@@ -22,48 +22,48 @@ export default function ProductOverview() {
 
   useEffect(() => {
     if (!containerRef.current) return;
-  
+
     const tl = gsap.timeline({ defaults: { duration: 0.3, ease: "power3.out" } });
-  
+
     // Breadcrumbs fade in
     tl.from(containerRef.current.querySelectorAll('.breadcrumb'), {
       opacity: 0,
       y: -10,
       stagger: 0.05
     });
-  
+
     // Main image animation
     tl.from(containerRef.current.querySelector('.main-image'), {
       scale: 0.95,
       opacity: 0,
       duration: 0.25
     }, "-=0.25");
-  
+
     // Thumbnails
     tl.fromTo(containerRef.current.querySelectorAll('.thumbnail'),
       { opacity: 0 },
       { opacity: 1, y: 0, stagger: 0.05 }
     );
-  
+
     // Product info
     tl.from(containerRef.current.querySelectorAll('.product-info > *'), {
       opacity: 0,
       y: 20,
       stagger: 0.05
     }, "-=0.25");
-  
+
     // Accordion
     tl.from(containerRef.current.querySelectorAll('.accordion-item'), {
       opacity: 0,
       y: 20,
       stagger: 0.05
     }, "-=0.4");
-  
-  }, [productData]);  
+
+  }, [productData]);
 
   if (!productData) {
     return (
-      <div className='min-h-[90dvh] flex justify-center items-center'>
+      <div className='min-h-[90dvh] flex justify-center items-center p-4'>
         <NoProducts
           showButton={true}
           title='Product Not Found'
@@ -76,7 +76,7 @@ export default function ProductOverview() {
   }
 
   return (
-    <div ref={containerRef} className="space-y-6">
+    <div ref={containerRef} className="space-y-6 p-4">
       <div className="flex items-center gap-2 cursor-default mb-4 mt-2 breadcrumb">
         <span
           className="text-muted-foreground cursor-pointer"

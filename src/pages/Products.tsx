@@ -9,7 +9,7 @@ export default function Products() {
   const [viewMode, setViewMode] = useState<"table" | "grid">("grid");
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-4">
       <PageHeader title="Products" />
       <ProductFilter viewMode={viewMode} onViewModeChange={setViewMode} />
       {viewMode === "table"
