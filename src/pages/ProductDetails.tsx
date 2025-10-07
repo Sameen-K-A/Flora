@@ -8,8 +8,8 @@ import { FaCartPlus, FaBagShopping } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { ROUTES } from '@/router/router';
 import { mockProducts } from '@/constants/mockProducts';
-import RatingStars from '../others/RatingStars';
-import NoProducts from './NoProducts';
+import RatingStars from '../components/others/RatingStars';
+import NoProducts from '../components/products/NoProducts';
 import type { IProduct } from '@/types/general';
 import { gsap } from 'gsap';
 
@@ -76,7 +76,7 @@ export default function ProductOverview() {
   }
 
   return (
-    <div ref={containerRef} className="space-y-6 p-4">
+    <div ref={containerRef} className="space-y-6 p-4 pb-24 md:pb-4">
       <div className="flex items-center gap-2 cursor-default mb-4 mt-2 breadcrumb">
         <span
           className="text-muted-foreground cursor-pointer"
@@ -182,7 +182,7 @@ export default function ProductOverview() {
       </div>
 
       {/* Mobile/Tablet Fixed Bottom Buttons */}
-      <div className="md:hidden sticky bottom-0 left-0 right-0 border-t py-2 flex gap-2 bg-background">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 border-t py-2 px-4 flex gap-2 bg-background/95 backdrop-blur-sm z-50">
         <Button variant="outline" className="flex-1">
           <FaCartPlus />
           <span>Add to Cart</span>
