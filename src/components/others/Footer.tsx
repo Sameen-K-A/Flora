@@ -1,6 +1,8 @@
 import { ROUTES } from "@/router/router";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const defaultSections = [
   {
@@ -30,9 +32,38 @@ const defaultSocialLinks = [
 ];
 
 export const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+  const animationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(animationRef.current?.children || [],
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top bottom-=50",
+            end: "bottom bottom",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="rounded-t-2xl border-t bg-muted p-4">
-      <div className="rounded-2xl bg-background p-4 py-10 shadow-2xl/5">
+    <footer ref={footerRef} className="rounded-t-2xl border-t bg-muted p-4">
+      <div ref={animationRef} className="rounded-2xl bg-background p-4 py-10 shadow-2xl/5">
         <div className="flex flex-col md:flex-row w-full justify-between gap-10">
           <div className="flex w-full items-center md:items-start flex-col gap-4">
             <div className="flex items-center gap-2 lg:justify-start">
