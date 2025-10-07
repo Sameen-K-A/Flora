@@ -80,7 +80,7 @@ export function CartSheet() {
           ))}
         </div>
 
-        <SheetFooter className="px-4 pb-4">
+        <SheetFooter>
           <Button type="submit" className="w-full">
             Continue to Checkout
           </Button>
