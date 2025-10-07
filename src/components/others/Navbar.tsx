@@ -19,9 +19,9 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav data-state={menuState ? "active" : undefined} className="w-full pb-3 px-4">
+      <nav data-state={menuState ? "active" : undefined} className="w-full px-4">
         <div className={cn("transition-all duration-300")}>
-          <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0 pb-1">
+          <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0">
 
             <div className="flex w-full items-center justify-between lg:w-auto">
               <Link to={ROUTES.HOME} aria-label="home">
