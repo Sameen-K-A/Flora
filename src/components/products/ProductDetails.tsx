@@ -182,7 +182,7 @@ export default function ProductOverview() {
       </div>
 
       {/* Mobile/Tablet Fixed Bottom Buttons */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 border-t px-4 py-2 flex gap-2 bg-background">
+      <div className="md:hidden sticky bottom-0 left-0 right-0 border-t py-2 flex gap-2 bg-background">
         <Button variant="outline" className="flex-1">
           <FaCartPlus />
           <span>Add to Cart</span>
