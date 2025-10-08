@@ -1,4 +1,5 @@
 import HeaderSection from "@/components/home/HeaderSection";
+import Trending from "@/components/home/Trending";
 import WelcomeMaquee from "@/components/home/WelcomeMaquee";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <WelcomeMaquee />
       <HeaderSection />
+      <Trending />
     </>
   );
 };
