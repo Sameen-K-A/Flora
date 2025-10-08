@@ -24,7 +24,7 @@ export default function Trending() {
             trigger: titleRef.current,
             start: "top bottom-=100",
             end: "bottom bottom",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -43,7 +43,7 @@ export default function Trending() {
             trigger: productsRef.current,
             start: "top bottom-=100",
             end: "bottom bottom",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
